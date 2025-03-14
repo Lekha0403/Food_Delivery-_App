@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Montserrat Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
+
+    <title>Food Delivery App</title>
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+            font-family: "Montserrat", sans-serif;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .navbar {
+            width: 100%;
+            height: 50px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            border: 1px solid #121212;
+            background-color: antiquewhite;
+        }
+        .nav-brand {
+            height: 80%;
+            padding: 0px 10px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+        }
+        .nav-info {
+            height: 80%;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .nav-info > a {
+            padding: 5px 10px;
+            margin: 3px;
+            text-decoration: none;
+            color: #121212;
+        }
+        .nav-signup {
+            height: 80%;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .nav-signup > img , .nav-signup > button {
+            margin: 10px;
+        }
+        .btn-signup {
+            background-color: #12121200;
+            padding: 8px 15px;
+            border: 1px solid #121212;
+            border-radius: 10px;
+            font-family: "Montserrat", sans-serif;
+        }
+        .poster {
+            width: 80%;
+            height: 300px;
+            margin: 40px 0px;
+            border-radius: 20px;
+        }
+        .poster-info {
+            width: 100%;
+            height: 300px;
+            border-radius: 20px;
+
+            background-color: seagreen;
+            margin-top: -304px;
+            color: #ffffff;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .poster-info > h2 , .poster-info > p {
+            width: 50%;
+            text-align: center;
+        }
+        .expore {
+            width: 80%;
+            /* background-color: salmon; */
+            margin-bottom: 100px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            border-bottom: 1.5px solid #121212;
+        }
+        .expore-items {
+            width: 100%;   
+            height: 190px;    
+            display: flex;     
+            flex-direction: row;    
+            align-items: center;   
+            overflow-y:hidden;          
+            padding: 10px 0;
+        }
+
+        .food-item {
+            width: 200px;
+            height: 100%;
+            margin-right: 20px;
+            padding: 10px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dishes-container {
+            width: 80%;
+            margin-top: -80px;
+        }
+
+        .dishes {
+            width: 100%;
+            padding: 10px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .dish {
+            width: 300px;
+            height: 350px;
+            border: 1px solid #121212;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+        }
+        .dish-image {
+            object-fit: cover; 
+            width: 100%;
+            height: 60%;
+            border-radius: 10px;
+        }
+        .dish-container {
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .dish-info {
+            width: 95%;
+        }
+        .dish-desc {
+            margin-top: -10px;
+            font-size: .9rem;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .nav-info, .poster-info > p{
+                display: none;
+            }
+        }
+        .container {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            /* border-radius: 50%; */
+        }
+        .food-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        footer {
+            width: 80%;
+            height: 300px;
+            margin: 40px 0px;
+            border-radius: 20px;
+            background-color: #3a3838;
+            color: white;
+            padding: 40px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-left, .footer-center, .footer-right {
+    max-width: 300px;
+}
+
+.footer-left p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.social-icons {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+}
+
+.social-icons a {
+    margin: 0 5px;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.footer-center ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-center ul li {
+    margin: 5px 0;
+}
+
+.footer-center ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-right p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    font-size: 12px;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer-right a {
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-brand">
+            <img src="./Assets/icons8-food-delivery-64 (2).png" alt="Logo",class="animate__animated animate__bounce" id="Logo">
+            <p>FoodDelivery <style font-family:Impact,Charcoal,sans-serif;></style></p>
+        </div>
+        <div class="nav-info">
+            <a href="/">Home</a>
+            <a href="/">Menu</a>
+            <a href="/">Contact us</a>
+        </div>
+        <div class="nav-signup">
+            <img src="./Assets/icons8-shopping-cart-48.png" />
+            <button class="btn-signup">Sign up</button>
+        </div>
+    </div>
+    <div class="poster">
+        <img src="./Assets/background[1].jpg" style="object-fit: cover; width: 100%; height: 100%; border-radius: 20px;"/>
+        <div class="poster-info">
+            <h2>Order your favorite food here</h2>
+            <p>Choose from a diverse menu featuring a delectable array of dishes crafted with the finest ingredients and culinary expertise.</p>
+            <button class="btn-signup" style="background-color: #ffffff;">View Menu</button>
+        </div>
+    </div>
+    <div class="expore">
+        <h2>Explore our menu</h2>
+        <p>Choose from a diverse menu featuring a delectable array of dishes. Our mission is to satisfy your cravings and elevate your dining experience, one delicious meal at a time.</p>
+        <div class="expore-items"></div>
+    </div>
+    <div class="dishes-container">
+        <h2>Top dishes near you</h2>
+        <div class="dishes">
+        </div>
+    </div>
+    <script>
+        const imageSrc = ["./Assets/menu_1-CpSfC1Ff.webp", "./Assets/1735652434407food_7.png","./Assets/1735652551563food_12.png","./Assets/1735652662437food_14.png","./Assets/1735652913162food_20.png","./Assets/1735653050586food_23.png","./Assets/1735653156349food_26.png","./Assets/1735653276922food_30.png"]
+        const name = ["Salad", "Rolls", "Deserts", "Sandwich", "Cake", "Pure Veg", "Pasta", "Noodles"]
+
+        let htmlData = ""
+        for(let i = 0; i < imageSrc.length; i++){
+            htmlData = htmlData + 
+            `<div class="food-item" id="food-item-${i}" onclick="update(this)">
+
+                <div class="container">
+                    <img src="${imageSrc[i]}" class="food-image"/>
+                </div>
+                <p>${name[i]}</p>
+            </div>
+            \n
+            ` 
+        }
+        console.log(htmlData)
+        document.getElementsByClassName("expore-items")[0].innerHTML = htmlData
+
+        function updateSalad() {
+            const salad = [
+            {
+                imgSrc : './Assets/image1.jpg',
+                name : 'Greek salad',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 120,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/image2.jpg',
+                name : 'Veg salad',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 180,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/image3.jpg',
+                name : 'Clover Salad',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 160,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/image4.jpg',
+                name : 'Chicken Salad',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 240,
+                ratings : 4
+            }
+        ]
+
+
+        let dishesdata = ''
+        for(let i = 0; i < salad.length; i++){
+            dishesdata += 
+            `<div class="dish">
+                <img src="${salad[i].imgSrc}" class="dish-image" style="object-fit: cover; width: 100%; height: 60%; border-top-left-radius: 10px; border-top-right-radius: 10px;"/>
+                <div class="dish-container">
+                    <div class="dish-info">
+                        <h4 class="dish-title">${salad[i].name}</h4>
+                        <p class="dish-desc">${salad[i].desc}</p>
+                        <p class="dish-price">₹${salad[i].price}</p>
+                    </div>
+                </div>
+            </div>\n`
+        }
+
+        document.getElementsByClassName('dishes')[0].innerHTML = dishesdata
+
+        }
+       /* function update(obj) {
+            if(obj.id === 'food-item-0'){ // salad
+                updateSalad()
+            }
+            else if(obj.id === 'food-item-1'){ // rolls
+                updateRolls()
+            }
+            console.log(obj.id)
+        }*/
+        function updateRolls() {
+            const Rolls = [
+            {
+                imgSrc : './Assets/1735652434407food_7.png',
+                name : 'Chicken Roll',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 200,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/1735653956004food_8.png',
+                name : 'Veg Roll',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 80,
+                ratings : 4
+            },
+
+        ]
+
+
+        let dishesdata = ''
+        for(let i = 0; i < Rolls.length; i++){
+            dishesdata += 
+            `<div class="dish">
+                <img src="${Rolls[i].imgSrc}" class="dish-image" style="object-fit: cover; width: 100%; height: 60%; border-top-left-radius: 10px; border-top-right-radius: 10px;"/>
+                <div class="dish-container">
+                    <div class="dish-info">
+                        <h4 class="dish-title">${Rolls[i].name}</h4>
+                        <p class="dish-desc">${Rolls[i].desc}</p>
+                        <p class="dish-price">₹${Rolls[i].price}</p>
+                    </div>
+                </div>
+            </div>\n`
+        }
+
+        document.getElementsByClassName('dishes')[0].innerHTML = dishesdata
+
+        }
+        /*function update(obj) {
+            if(obj.id === 'food-item-1'){ // salad
+                updateSalad()
+            }
+            else if(obj.id === 'food-item-2'){ // rolls
+                updateRolls()
+            }
+            console.log(obj.id)
+        }*/
+        function updateDeserts() {
+            const Deserts = [
+            {
+                imgSrc : './Assets/1735652463233food_9.png',
+                name : 'Ripple Ice Cream',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 140,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/1735652551563food_12.png',
+                name : 'Venila Ice Cream',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 80,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/1735652487348food_10.png',
+                name : 'Fruit Ice Cream',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 220,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/1735652533279food_11.png',
+                name : 'Jar Ice Cream',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 100,
+                ratings : 4
+            }
+        ]
+
+
+        let dishesdata = ''
+        for(let i = 0; i < Deserts.length; i++){
+            dishesdata += 
+            `<div class="dish">
+                <img src="${Deserts[i].imgSrc}" class="dish-image" style="object-fit: cover; width: 100%; height: 60%; border-top-left-radius: 10px; border-top-right-radius: 10px;"/>
+                <div class="dish-container">
+                    <div class="dish-info">
+                        <h4 class="dish-title">${Deserts[i].name}</h4>
+                        <p class="dish-desc">${Deserts[i].desc}</p>
+                        <p class="dish-price">₹${Deserts[i].price}</p>
+                    </div>
+                </div>
+            </div>
+            \n`
+        }
+
+        document.getElementsByClassName('dishes')[0].innerHTML = dishesdata
+
+        }
+        /*function update(obj) {
+            if(obj.id === 'food-item-3'){ 
+                updateDeserts()
+            }
+            else if(obj.id === 'food-item-2'){ 
+                updateRolls()
+            }
+            console.log(obj.id)
+        }*/
+        function updateSandwich() {
+            const Sandwich = [
+            {
+                imgSrc : './Assets/1735652642452food_13.png',
+                name : 'Chicken Sandwich',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 120,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/1735652662437food_14.png',
+                name : 'Veg Sandwich',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 115,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/1735652760873food_16.png',
+                name : 'Bread Sandwich',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 240,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/1735652795134food_15.png',
+                name : 'Grilled Sandwich',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 160,
+                ratings : 4
+            }
+        ]
+
+
+        let dishesdata = ''
+        for(let i = 0; i < Sandwich.length; i++){
+            dishesdata += 
+            `<div class="dish">
+                <img src="${Sandwich[i].imgSrc}" class="dish-image" style="object-fit: cover; width: 100%; height: 60%; border-top-left-radius: 10px; border-top-right-radius: 10px;"/>
+                <div class="dish-container">
+                    <div class="dish-info">
+                        <h4 class="dish-title">${Sandwich[i].name}</h4>
+                        <p class="dish-desc">${Sandwich[i].desc}</p>
+                        <p class="dish-price">₹${Sandwich[i].price}</p>
+                    </div>
+                </div>
+            </div>\n`
+        }
+
+        document.getElementsByClassName('dishes')[0].innerHTML = dishesdata
+
+        }
+        /*function update(obj) {
+            if(obj.id === 'food-item-3'){ // salad
+                updateSandwich()
+            }
+            else if(obj.id === 'food-item-4'){ // rolls
+                updateDeserts()
+            }
+            console.log(obj.id)
+        }*/
+        function updateCake() {
+            const Cake = [
+            {
+                imgSrc : './Assets/1735652840470food_17.png',
+                name : 'Cup Cake',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 60,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/1735652866009food_18.png',
+                name : 'Vegan Cake',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 120,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/1735652896321food_19.png',
+                name : 'Butterscotch Cake',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 200,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/1735652913162food_20.png',
+                name : 'Slice Cake',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 60,
+                ratings : 4
+            }
+        ]
+
+
+        let dishesdata = ''
+        for(let i = 0; i < Cake.length; i++){
+            dishesdata += 
+            `<div class="dish">
+                <img src="${Cake[i].imgSrc}" class="dish-image" style="object-fit: cover; width: 100%; height: 60%; border-top-left-radius: 10px; border-top-right-radius: 10px;"/>
+                <div class="dish-container">
+                    <div class="dish-info">
+                        <h4 class="dish-title">${Cake[i].name}</h4>
+                        <p class="dish-desc">${Cake[i].desc}</p>
+                        <p class="dish-price">₹${Cake[i].price}</p>
+                    </div>
+                </div>
+            </div>\n`
+        }
+
+        document.getElementsByClassName('dishes')[0].innerHTML = dishesdata
+
+        }
+        /*function update(obj) {
+            if(obj.id === 'food-item-4'){ // salad
+                updateSalad()
+            }
+            else if(obj.id === 'food-item-5'){ // rolls
+                updateRolls()
+            }
+            console.log(obj.id)
+        }*/
+        function updatePureVeg() {
+            const PureVeg = [
+            {
+                imgSrc : './Assets/1735652966669food_21.png',
+                name : 'Garlic Mushroom',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 140,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/1735653050586food_23.png',
+                name : 'Mix Veg Pulao',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 100,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/1735653081287food_24.png',
+                name : 'Rice Zucchini',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 120,
+                ratings : 4
+            },
+        ]
+
+
+        let dishesdata = ''
+        for(let i = 0; i < PureVeg.length; i++){
+            dishesdata += 
+            `<div class="dish">
+                <img src="${PureVeg[i].imgSrc}" class="dish-image" style="object-fit: cover; width: 100%; height: 60%; border-top-left-radius: 10px; border-top-right-radius: 10px;"/>
+                <div class="dish-container">
+                    <div class="dish-info">
+                        <h4 class="dish-title">${PureVeg[i].name}</h4>
+                        <p class="dish-desc">${PureVeg[i].desc}</p>
+                        <p class="dish-price">₹${PureVeg[i].price}</p>
+                    </div>
+                </div>
+            </div>\n`
+        }
+
+        document.getElementsByClassName('dishes')[0].innerHTML = dishesdata
+
+        }
+        /*function update(obj) {
+            if(obj.id === 'food-item-5'){ // salad
+                updateSalad()
+            }
+            else if(obj.id === 'food-item-6'){ // rolls
+                updateRolls()
+            }
+            console.log(obj.id)
+        }*/
+        function updatePasta() {
+            const Pasta = [
+            {
+                imgSrc : './Assets/1735653129255food_25.png',
+                name : 'Cheese Pasta',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 120,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/1735653156349food_26.png',
+                name : 'Tomato Pasta',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 180,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/1735653185626food_27.png',
+                name : 'Creamy Pasta',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 160,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/1735653215952food_28.png',
+                name : 'Chicken Pasta',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 240,
+                ratings : 4
+            }
+        ]
+
+
+        let dishesdata = ''
+        for(let i = 0; i < Pasta.length; i++){
+            dishesdata += 
+            `<div class="dish">
+                <img src="${Pasta[i].imgSrc}" class="dish-image" style="object-fit: cover; width: 100%; height: 60%; border-top-left-radius: 10px; border-top-right-radius: 10px;"/>
+                <div class="dish-container">
+                    <div class="dish-info">
+                        <h4 class="dish-title">${Pasta[i].name}</h4>
+                        <p class="dish-desc">${Pasta[i].desc}</p>
+                        <p class="dish-price">₹${Pasta[i].price}</p>
+                    </div>
+                </div>
+            </div>\n`
+        }
+
+        document.getElementsByClassName('dishes')[0].innerHTML = dishesdata
+
+        }
+        /*function update(obj) {
+            if(obj.id === 'food-item-6'){ // salad
+                updateSalad()
+            }
+            else if(obj.id === 'food-item-7'){ // rolls
+                updateRolls()
+            }
+            console.log(obj.id)
+        }*/
+        function updateNoodles() {
+            const Noodles = [
+            {
+                imgSrc : './Assets/1735653254460food_29.png',
+                name : 'Butter Noodles',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 140,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/1735653276922food_30.png',
+                name : 'Veg Noodles',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 120,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/1735653298488food_31.png',
+                name : 'Somen Noodles',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 200,
+                ratings : 4
+            },
+            {
+                imgSrc : './Assets/1735653321991food_32.png',
+                name : 'Cooked Noodles',
+                desc : 'Food provides essential nutrients for overall health and well-being',
+                price : 150,
+                ratings : 4
+            }
+        ]
+
+
+        let dishesdata = ''
+        for(let i = 0; i < Noodles.length; i++){
+            dishesdata += 
+            `<div class="dish">
+                <img src="${Noodles[i].imgSrc}" class="dish-image" style="object-fit: cover; width: 100%; height: 60%; border-top-left-radius: 10px; border-top-right-radius: 10px;"/>
+                <div class="dish-container">
+                    <div class="dish-info">
+                        <h4 class="dish-title">${Noodles[i].name}</h4>
+                        <p class="dish-desc">${Noodles[i].desc}</p>
+                        <p class="dish-price">₹${Noodles[i].price}</p>
+                    </div>
+                </div>
+            </div>\n`
+        }
+
+        document.getElementsByClassName('dishes')[0].innerHTML = dishesdata
+
+        }
+        /*function update(obj) {
+            if(obj.id === 'food-item-0'){ // salad
+                updateSalad()
+            }
+            else if(obj.id === 'food-item-1'){ // rolls
+                updateRolls()
+            }
+            console.log(obj.id)
+        }*/
+        function update(obj) {
+        if (obj.id === 'food-item-0') { // Salad
+            updateSalad()
+        }
+        else if (obj.id === 'food-item-1') { // Rolls
+            updateRolls()
+        }
+        else if (obj.id === 'food-item-2') { // Deserts
+            updateDeserts()
+        }
+        else if (obj.id === 'food-item-3') { // Sandwich
+            updateSandwich()
+        }
+        else if (obj.id === 'food-item-4') { // Cake
+            updateCake()
+        }
+        else if (obj.id === 'food-item-5') { // Pure Veg
+            updatePureVeg()
+        }
+        else if (obj.id === 'food-item-6') { // Pasta
+            updatePasta()
+        }
+        else if (obj.id === 'food-item-7') { // Noodles
+            updateNoodles()
+        }
+    }
+    </script>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <h2><img src="./Assets/icons8-food-delivery-64.png" alt="Logo"> FoodDelivery</h2>
+
+                <p>Food delivery services provide convenient access to a variety of cuisines, bringing meals straight to customers' doorsteps. They operate through online platforms or mobile apps, allowing users to browse menus, place orders, and track deliveries in real time. With the rise of technology, food delivery has become faster, more efficient, and widely accessible across urban and suburban areas.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/"><i class="fab fa-facebook"><img src="./Assets/icons8-facebook-30 (1).png"></i></a>
+                    <a href="https://x.com/i/flow/login?lang=en"><i class="fab fa-twitter"><img src="./Assets/icons8-twitter-30.png"></i></a>
+                    <a href="https://in.linkedin.com/"><i class="fab fa-linkedin"><img src="./Assets/icons8-linkedin-30.png"></i></a>
+                </div>
+            </div>
+            <div class="footer-center">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Reviews</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <h3>Get in touch</h3>
+                <p>+91 9390135232</p>
+                <p><a href="mailto:kommilekhasreetpt@gmail.com">kommilekhasreetpt@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright 2024 © 2021 FoodPrep. All rights reserved.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>
